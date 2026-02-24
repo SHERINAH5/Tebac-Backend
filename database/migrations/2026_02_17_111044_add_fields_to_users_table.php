@@ -11,22 +11,20 @@ return new class extends Migration
      */
    public function up()
 {
-    Schema::table('users', function (Blueprint $table) {
-        $table->string('first_name')->after('id');
-        $table->string('last_name')->after('first_name');
-        $table->string('contact')->unique()->after('email');
-        $table->text('biography')->nullable();
-        $table->string('address')->nullable();
-        $table->string('gender')->nullable();
-        $table->string('image')->nullable();
+  Schema::table('users', function (Blueprint $table) {
+    $table->string('contact')->unique()->after('email');
+    $table->text('biography')->nullable();
+    $table->string('address')->nullable();
+    $table->string('gender')->nullable();
+    $table->string('image')->nullable();
 
-        // Recommendation-related
-        $table->string('preferred_style')->nullable();
-        $table->string('preferred_color')->nullable();
-        $table->string('body_type')->nullable();
+    // Recommendation-related
+    $table->string('preferred_style')->nullable();
+    $table->string('preferred_color')->nullable();
+    $table->string('body_type')->nullable();
 
-        $table->string('role')->default('user');
-    });
+    $table->string('role')->default('user');
+});
 }
 
 };
